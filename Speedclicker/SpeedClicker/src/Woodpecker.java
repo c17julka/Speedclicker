@@ -13,7 +13,7 @@ public class Woodpecker extends Shop {
 
 		
 		public void run() {
-			pointCounter =+ points;
+			pointCounter += points;
 			System.out.println(" new Wp " + pointCounter);
 			
 		}};
@@ -23,7 +23,7 @@ public class Woodpecker extends Shop {
 		}
 	
 		public int payPointsWood (int playerPoints) {
-			playerPoints =- 20;
+			playerPoints -= 20;
 			return playerPoints;
 		}
 }
