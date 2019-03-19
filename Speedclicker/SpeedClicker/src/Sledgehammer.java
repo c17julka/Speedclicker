@@ -7,7 +7,6 @@ public class Sledgehammer extends Shop {
 	int points = 3;
 	
 	int pointCounter = 0;
-	
 	Timer sledgeTimer = new Timer();
 	TimerTask sledgeTask = new TimerTask() {
 
@@ -17,15 +16,20 @@ public class Sledgehammer extends Shop {
 			System.out.println(" new Sp " + pointCounter);
 			
 		}};
-		
-		public void start(int y) {
+	
+		 void start() {
 			sledgeTimer.scheduleAtFixedRate(sledgeTask, 0, 4000);
-			
+	
 		}
 	
 		public int payPointsSledge (int playerPoints) {
-			playerPoints =- 50;
+			playerPoints -= 50;
 			return playerPoints;
+		}
+		
+		public int timeScore(int playerPoints) {
+			 playerPoints += pointCounter;
+			 return playerPoints;
 		}
 		
 	

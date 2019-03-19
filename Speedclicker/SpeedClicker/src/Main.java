@@ -13,16 +13,15 @@ public class Main
 		ShopItemTimer time = new ShopItemTimer();
 		time.start();
 		
-		
-		Sledgehammer hh = new Sledgehammer();
-		Woodpecker hj = new Woodpecker();
-		
-		int y = 10;
-		
-		hh.start(y);
-		hj.start();
-		
-		System.out.println(hh.pointCounter + "it is?");
+			int y = 0;
+			int yy = 100;
+			
+		Sledgehammer slg = new Sledgehammer();
+		Woodpecker wpr = new Woodpecker();
+			
+			wpr.start();
+			slg.start();
+
 	}
 
 }

@@ -5,7 +5,10 @@ import java.util.TimerTask;
 // Change everything ere
 public class ShopItemTimer {
 	
+
+	
 	static int sekPassed = 0;
+	
 	 Timer itemTimer = new Timer();
 	 TimerTask itemTask = new TimerTask() {
 
@@ -21,7 +24,7 @@ public class ShopItemTimer {
 	 }
 	 
 	
-
+	
 
 	
 }
