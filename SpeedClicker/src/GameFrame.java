@@ -9,27 +9,34 @@ public class GameFrame extends JFrame
 	{
 		super(title);
       
+		// Add panels
         ClickerPanel clickerPanel = new ClickerPanel();
         TimerPanel timerPanel = new TimerPanel();
-        ShopPanel shopPanel = new ShopPanel();
+        ItemPanelOne shopPanelOne = new ItemPanelOne();
+        ItemPanelTwo shopPanelTwo = new ItemPanelTwo();
+        ShopHeaderPanel shopHeader = new ShopHeaderPanel();
         
        // Frame settings
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(535,400);    
         setLayout(null);
         setLocationRelativeTo(null);       
-        setVisible(true);
-        
-        
+        setVisible(true);        
         
         // Add components to frame
         Container c = getContentPane();
         
         c.add(clickerPanel);
         c.add(timerPanel);
-        c.add(shopPanel);
+        c.add(shopPanelOne);
+        c.add(shopPanelTwo);
+        c.add(shopHeader);
         
-        
+        if (TimerPanel.sekPassed >= 60)
+        {
+        	EndScreenFrame endFrame = new EndScreenFrame();
+			dispose();
+        }
         
 	}
 }

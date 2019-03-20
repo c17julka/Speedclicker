@@ -23,7 +23,7 @@ public class ClickerPanel extends JPanel
 	    public void mouseClicked(MouseEvent e) 
 	    {
 	    	clicks++;
-	    	System.out.println(clicks);
+	    	TimerPanel.clickLabel.setText("Total clicks: " + ClickerPanel.clicks);
 	    }
 	};
 	
@@ -36,7 +36,7 @@ public class ClickerPanel extends JPanel
 	{	
 		
 		// Panel settings
-		setBounds(0,100,260,300);   	    
+		setBounds(0,100,260,265);   	    
 	    setLayout(new GridBagLayout());
 	    setBorder(BorderFactory.createLineBorder(Color.black));
 	    

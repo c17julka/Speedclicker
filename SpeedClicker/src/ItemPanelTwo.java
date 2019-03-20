@@ -11,45 +11,39 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-public class ItemPanelOne extends JPanel {
+public class ItemPanelTwo extends JPanel{
 
 	private BufferedImage toolImgOne;
-	static int itemClick = 0;
-	// Boolean itemBuy = false; might not woork at allll
+	
+static int itemClick = 0;
 	
 	private MouseAdapter clickListener = new MouseAdapter() 
 	{
 	    public void mouseClicked(MouseEvent e) 
 	    {
 	    	
-	    	// Fix Points forplayer and stuff
-	    	if (playerpoints >= 50) {
-	    		Sledgehammer sledgehammer = new Sledgehammer();
-		sledgehammer.setItemName("Sledgehammer ");
-		sledgehammer.setPrice(50);
-		System.out.println("New Sledgehammer");
-		
-		sledgehammer.payPointsSledge(playerPoints);
 	    	itemClick++;
 	    	
-	    	if (itemClick == 1) {
-	    		System.out.print("Bought ");
-	    		// Create Sledgehammer
-		
-		sledgehammer.start();
-		
-		//sledgehammer.payPointsSledge(playerPoints);
-	    	}
-	    	else {
-	    		System.out.print("Already bought");
-	    		System.out.println(" The Sledgehammer");
-	    	}
-	    }
-	    	else {
+	    	if (ClickerPanel.clicks >= 30) {
 	    		
+	    		// change img (?)
+	    		// Create Woodpecker
+		Woodpecker woodpecker = new Woodpecker();
+		woodpecker.setItemName("Woodpecker ");
+		woodpecker.setPrice(30);
+		
+		TimerPanel.eventLabel.setForeground(Color.BLUE);
+		TimerPanel.eventLabel.setText("Bought new Woodpecker!");
+		
+		woodpecker.start();
+		
+		ClickerPanel.clicks = woodpecker.payPointsWood(ClickerPanel.clicks);
+	    	}
+	    	else {
+	    		TimerPanel.eventLabel.setForeground(Color.RED);
+	    		TimerPanel.eventLabel.setText("You can't afford the Woodpecker");
 	    	}
 	    }
-	    
 	};
 	
 	public static int getClicks()
@@ -58,17 +52,17 @@ public class ItemPanelOne extends JPanel {
 	}
 	
 	
-	public ItemPanelOne() {
+	public ItemPanelTwo() {
 		
 		// Panel settings
-		setBounds(259,-1,261,200);   	    
+		setBounds(259,195,261,170); 	    
 	    setLayout(new GridBagLayout());
 	    setBorder(BorderFactory.createLineBorder(Color.black));
 	    
 	    // Show image
 	    try 
-	    {    // change this img for a free to use            
-	       toolImgOne = ImageIO.read(new URL("https://i.pinimg.com/originals/84/80/0a/84800a51190797584c6f28c3141b9678.png"));
+	    {                
+	       toolImgOne = ImageIO.read(new URL("https://i.imgur.com/m2v2aoA.png"));
 	       
 	    } 
 	    catch (IOException ex) 
@@ -86,6 +80,4 @@ public class ItemPanelOne extends JPanel {
 	        g.drawImage(toolImgOne, 1, 15, this); // see javadoc for more info on the parameters    
 	        
 	    }
-		
-		
 }

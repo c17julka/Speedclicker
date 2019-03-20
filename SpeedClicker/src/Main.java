@@ -8,11 +8,8 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		StartingDialogFrame dia = new StartingDialogFrame();
+		StartingDialogFrame start = new StartingDialogFrame();
 		
-		Sledgehammer slg = new Sledgehammer();
-	
-		slg.start();
 
 	}
 	

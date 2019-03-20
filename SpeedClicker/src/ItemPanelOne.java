@@ -11,36 +11,50 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-public class ItemPanelTwo extends JPanel{
+public class ItemPanelOne extends JPanel {
 
 	private BufferedImage toolImgOne;
-	
-static int itemClick = 0;
+	static int itemClick = 0;
+	// static int sledgeAmount = 0;
+	Sledgehammer sledgehammer;
+	// Boolean itemBuy = false; might not woork at allll
 	
 	private MouseAdapter clickListener = new MouseAdapter() 
 	{
 	    public void mouseClicked(MouseEvent e) 
 	    {
-	    	itemClick++;
 	    	
-	    	if (itemClick == 1) {
-	    		
-	    		// change img (?)
-	    		System.out.print("Bought ");
-	    		// Create Woodpecker
-		Woodpecker woodpecker = new Woodpecker();
-		woodpecker.setItemName("Woodpecker ");
-		woodpecker.setPrice(30);
-		System.out.println("New Woodpecker");
-		woodpecker.start();
+	    	// Fix Points forplayer and stuff
+	    	if (ClickerPanel.clicks >= 50) {
+	    		sledgehammer = new Sledgehammer();
+		sledgehammer.setItemName("Sledgehammer ");
+		sledgehammer.setPrice(50);
 		
-		//sledgehammer.payPointsSledge(playerPoints);
-	    	}
+		TimerPanel.eventLabel.setForeground(Color.BLUE);
+		TimerPanel.eventLabel.setText("Bought new Sledgehammer!");
+		
+		sledgehammer.payPointsSledge(ClickerPanel.clicks);
+	    	itemClick++;
+	    	// sledgeAmount++;
+	    	
+//	    	if (itemClick == 1) {
+
+//	    		// Create Sledgehammer
+		sledgehammer.start();
+		
+		ClickerPanel.clicks = sledgehammer.payPointsSledge(ClickerPanel.clicks);
+//	    	}
+////	    	else {
+////	    		System.out.print("Already bought");
+////	    		System.out.println(" The Sledgehammer");
+////	    	}
+	    }
 	    	else {
-	    		System.out.print("Already bought");
-	    		System.out.println(" The Woodpecker");
+	    		TimerPanel.eventLabel.setForeground(Color.RED);
+	    		TimerPanel.eventLabel.setText("You can't afford the Sledgehammer");
 	    	}
 	    }
+	    
 	};
 	
 	public static int getClicks()
@@ -49,16 +63,16 @@ static int itemClick = 0;
 	}
 	
 	
-	public ItemPanelTwo() {
+	public ItemPanelOne() {
 		
 		// Panel settings
-		setBounds(259,198,261,202);   	    
+		setBounds(259,39,261,167);   	    
 	    setLayout(new GridBagLayout());
 	    setBorder(BorderFactory.createLineBorder(Color.black));
 	    
 	    // Show image
 	    try 
-	    {                
+	    {    // change this img for a free to use            
 	       toolImgOne = ImageIO.read(new URL("https://i.pinimg.com/originals/84/80/0a/84800a51190797584c6f28c3141b9678.png"));
 	       
 	    } 
@@ -77,4 +91,6 @@ static int itemClick = 0;
 	        g.drawImage(toolImgOne, 1, 15, this); // see javadoc for more info on the parameters    
 	        
 	    }
+		
+		
 }

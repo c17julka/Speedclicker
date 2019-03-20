@@ -2,19 +2,20 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Woodpecker extends Shop {
-	String name = "Woodpecker";
-	int price = 20;
-	int points = 1;
 	
+	
+	int points = 1;
 	int pointCounter = 0;
+	
 	
 	Timer woodTimer = new Timer();
 	TimerTask woodTask = new TimerTask() {
 
 		
 		public void run() {
-			pointCounter += points;
-			System.out.println(" new Wp " + pointCounter);
+			ClickerPanel.clicks += points;
+			TimerPanel.clickLabel.setText("Total clicks: " + ClickerPanel.clicks);
+			
 			
 		}};
 		
@@ -23,7 +24,22 @@ public class Woodpecker extends Shop {
 		}
 	
 		public int payPointsWood (int playerPoints) {
-			playerPoints -= 20;
+			playerPoints -= 30;
 			return playerPoints;
+		}
+		
+		public int timeScore(int playerPoints) {
+			 playerPoints += pointCounter;
+			 return playerPoints;
+		}
+		
+		public int getScore() {
+
+			return pointCounter;
+		}
+	
+		
+		public int getPoints() {
+			return points;
 		}
 }

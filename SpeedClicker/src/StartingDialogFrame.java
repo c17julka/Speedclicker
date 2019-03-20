@@ -9,10 +9,13 @@ import javax.swing.JLabel;
 
 public class StartingDialogFrame extends JFrame
 {
+	
+	static GameFrame gameFrame;
 
 	public StartingDialogFrame()
 	{		
 		// Frame settings
+		setTitle("Speedclicker");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(320, 200);
 		setLayout(new GridBagLayout());
@@ -21,19 +24,22 @@ public class StartingDialogFrame extends JFrame
 		
 		JButton startBtn = new JButton("Start game!");
 		
-		// Display main game frame when user clicks start button
+		// Display main game frame when user clicks start button - button listener
 		startBtn.addActionListener(new ActionListener()
 		{
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				GameFrame frame = new GameFrame("Speedclicker");
-				TimerPanel.start(); // Start timer when user clicks btn
+			public void actionPerformed(ActionEvent e) 
+			{
+				dispose();
+				gameFrame = new GameFrame("Speedclicker");
+				TimerPanel.start(); // Start timer when user clicks btn				
 				
 			}
 			
 		});
 		
+		// Create Swing components
 		JLabel welcome = new JLabel("Welcome to Speedclicker!");
 		JLabel rule1 = new JLabel("Click the creature to gain points");
 		JLabel rule2 = new JLabel("Shop for items to auto increase your points");
