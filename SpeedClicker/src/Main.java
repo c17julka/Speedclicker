@@ -7,7 +7,14 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		JFrame frame = new Frame("Speedclicker");
-	}
+		
+		StartingDialogFrame dia = new StartingDialogFrame();
+		
+		Sledgehammer slg = new Sledgehammer();
+	
+		slg.start();
 
+	}
+	
+	
 }
