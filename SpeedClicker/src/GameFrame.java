@@ -2,9 +2,11 @@ import java.awt.Container;
 
 import javax.swing.JFrame;
 
-public class GameFrame extends JFrame {
+public class GameFrame extends JFrame 
+{
 
-	public GameFrame(String title) {
+	public GameFrame(String title) 
+	{
 		super(title);
 
 		// Add panels
@@ -31,7 +33,9 @@ public class GameFrame extends JFrame {
 		c.add(shopPanelThree);
 		c.add(shopHeader);
 
-		if (TimerPanel.sekPassed >= 60) {
+		// Creates ending screen frame when 1min has passed
+		if (TimerPanel.sekPassed >= 60) 
+		{
 			EndScreenFrame endFrame = new EndScreenFrame();
 			dispose();
 		}

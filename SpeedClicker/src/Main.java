@@ -7,9 +7,8 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		
-		StartingDialogFrame start = new StartingDialogFrame();
-		
+		// Create the starting frame screen
+		StartingDialogFrame start = new StartingDialogFrame();		
 
 	}
 	

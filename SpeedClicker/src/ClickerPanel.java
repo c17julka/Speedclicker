@@ -12,21 +12,21 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-public class ClickerPanel extends JPanel {
+public class ClickerPanel extends JPanel 
+{
+	// Create variables
 	private BufferedImage clickerImage;
 	static int clicks = 0;
 
 	// Mouse listener for detecting clicks on panel (image)
-	private MouseAdapter clickListener = new MouseAdapter() {
-		public void mouseClicked(MouseEvent e) {
-			clicks++;
-			TimerPanel.clickLabel.setText("Total clicks: " + ClickerPanel.clicks);
+	private MouseAdapter clickListener = new MouseAdapter() 
+	{
+		public void mouseClicked(MouseEvent e) 
+		{
+			clicks++; // Total clicks increases for each mouse click
+			TimerPanel.clickLabel.setText("Total clicks: " + ClickerPanel.clicks); // Updates label which shows total clicks
 		}
 	};
-
-	public static int getClicks() {
-		return clicks;
-	}
 
 	public ClickerPanel() {
 
@@ -36,19 +36,23 @@ public class ClickerPanel extends JPanel {
 		setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Show image
-		try {
-			clickerImage = ImageIO.read(new URL("https://i.imgur.com/si9MGVP.png"));
-		} catch (IOException ex) {
-			// handle exception...
+		try 
+		{
+			clickerImage = ImageIO.read(new URL("https://i.imgur.com/EguHDSE.png"));
+		} 
+		catch (IOException ex) 
+		{
+			
 		}
-
+		
 		addMouseListener(clickListener);
 
 	}
 
-	// Image settings
+	// Image settings / draw image
 	@Override
-	protected void paintComponent(Graphics g) {
+	protected void paintComponent(Graphics g) 
+	{
 		super.paintComponent(g);
 		g.drawImage(clickerImage, 1, 15, this); // see javadoc for more info on the parameters
 	}

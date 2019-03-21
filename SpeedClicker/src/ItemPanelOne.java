@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 
 public class ItemPanelOne extends JPanel {
 
+	// Add space img
 	private BufferedImage toolImgOne;
 
-	Sledgehammer sledgehammer;
-
+	// Add listner for item click
 	private MouseAdapter clickListener = new MouseAdapter() {
 		public void mouseClicked(MouseEvent e) {
 
@@ -24,20 +24,22 @@ public class ItemPanelOne extends JPanel {
 			if (ClickerPanel.clicks >= 25) {
 
 				// Create Sledgehammer
-				sledgehammer = new Sledgehammer();
+				Sledgehammer sledgehammer = new Sledgehammer();
 				sledgehammer.setItemName("Sledgehammer ");
 				sledgehammer.setPrice(25);
 
+				// Add labels for event
 				TimerPanel.eventLabel.setForeground(Color.BLUE);
 				TimerPanel.eventLabel.setText("Bought new " + sledgehammer.getItemName() + "!");
 
-				sledgehammer.payPointsSledge(ClickerPanel.clicks);
-
+				// Start timer and autoclick
 				sledgehammer.start();
 
+				// Remove clicks for purchase
 				ClickerPanel.clicks = sledgehammer.payPointsSledge(ClickerPanel.clicks);
 
 			} else {
+				// Add labels for event
 				TimerPanel.eventLabel.setForeground(Color.RED);
 				TimerPanel.eventLabel.setText("You can't afford the Sledgehammer");
 			}
@@ -48,13 +50,13 @@ public class ItemPanelOne extends JPanel {
 	public ItemPanelOne() {
 
 		// Panel settings
-		setBounds(259, 39, 132, 167);
+		setBounds(388, 39, 132, 167);
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Show image
-		try { // change this img for a free to use
-			toolImgOne = ImageIO.read(new URL("https://i.imgur.com/3CjxbYm.png?1"));
+		try {
+			toolImgOne = ImageIO.read(new URL("https://i.imgur.com/Ti7OYc3.png?2"));
 
 		} catch (IOException ex) {
 			// handle exception...

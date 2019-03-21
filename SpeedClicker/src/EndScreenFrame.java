@@ -19,25 +19,9 @@ public class EndScreenFrame extends JFrame
 		// Frame settings
 		setTitle("Speedclicker");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(360, 150);
+		setSize(450, 150);
 		setLayout(new GridBagLayout());
 		setLocationRelativeTo(null);
-		
-		JButton replayBtn = new JButton("Replay");
-		
-		// Replay the game - button listener
-		replayBtn.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				dispose();
-				StartingDialogFrame start = new StartingDialogFrame();			
-				
-			}
-			
-		});
 		
 		// Create label and change fonts
 		JLabel congratsLabel = new JLabel();
@@ -78,11 +62,6 @@ public class EndScreenFrame extends JFrame
 		gbc.gridy = 1;
 		
 		add(congratsLabel, gbc);
-		
-//		gbc.gridx = 0;
-//		gbc.gridy = 2;
-//		
-//		add(replayBtn, gbc);
 		
 		setVisible(true);
 		

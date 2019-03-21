@@ -13,11 +13,14 @@ import javax.swing.JPanel;
 
 public class ItemPanelThree extends JPanel {
 
+	// Add space img
 	private BufferedImage toolImgThree;
 
+	// Add listner for item click
 	private MouseAdapter clickListener = new MouseAdapter() {
 		public void mouseClicked(MouseEvent e) {
-
+			
+			// Let player buy item if enough clicks exist
 			if (ClickerPanel.clicks >= 200) {
 
 				// Create Woodpecker
@@ -25,13 +28,17 @@ public class ItemPanelThree extends JPanel {
 				wreckingBall.setItemName("WreckingBall ");
 				wreckingBall.setPrice(200);
 
+				// Add labels for event 
 				TimerPanel.eventLabel.setForeground(Color.BLUE);
 				TimerPanel.eventLabel.setText("Bought new " + wreckingBall.getItemName() + "!");
 
+				// Start timer and autoclick
 				wreckingBall.start();
 
+				// Remove clicks for purchase
 				ClickerPanel.clicks = wreckingBall.payPointsWreck(ClickerPanel.clicks);
 			} else {
+				// Add labels for event 
 				TimerPanel.eventLabel.setForeground(Color.RED);
 				TimerPanel.eventLabel.setText("You can't afford the Wrecking ball");
 			}
@@ -41,13 +48,13 @@ public class ItemPanelThree extends JPanel {
 	public ItemPanelThree() {
 
 		// Panel settings
-		setBounds(259, 195, 132, 170);
+		setBounds(388, 195, 132, 170);
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Show image
 		try {
-			toolImgThree = ImageIO.read(new URL("https://i.imgur.com/7l5xOLm.png?1"));
+			toolImgThree = ImageIO.read(new URL("https://i.imgur.com/y8E4EIA.png?1"));
 
 		} catch (IOException ex) {
 			// handle exception...

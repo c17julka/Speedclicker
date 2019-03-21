@@ -13,25 +13,32 @@ import javax.swing.JPanel;
 
 public class ItemPanelTwo extends JPanel {
 
+	// Add space img
 	private BufferedImage toolImgTwo;
 
+	// Add listner for item click
 	private MouseAdapter clickListener = new MouseAdapter() {
 		public void mouseClicked(MouseEvent e) {
 
-			if (ClickerPanel.clicks >=10) {
+			// Let player buy item if enough clicks exist
+			if (ClickerPanel.clicks >= 10) {
 
 				// Create Woodpecker
 				Woodpecker woodpecker = new Woodpecker();
 				woodpecker.setItemName("Woodpecker ");
 				woodpecker.setPrice(10);
 
+				// Add labels for event
 				TimerPanel.eventLabel.setForeground(Color.BLUE);
-				TimerPanel.eventLabel.setText("Bought new Woodpecker!");
+				TimerPanel.eventLabel.setText("Bought new " + woodpecker.getItemName() + "!");
 
+				// Start timer and autoclick
 				woodpecker.start();
 
+				// Remove clicks for purchase
 				ClickerPanel.clicks = woodpecker.payPointsWood(ClickerPanel.clicks);
 			} else {
+				// Add labels for event
 				TimerPanel.eventLabel.setForeground(Color.RED);
 				TimerPanel.eventLabel.setText("You can't afford the Woodpecker");
 			}
@@ -41,13 +48,13 @@ public class ItemPanelTwo extends JPanel {
 	public ItemPanelTwo() {
 
 		// Panel settings
-		setBounds(390, 39, 130, 326);
+		setBounds(259, 39, 130, 326);
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Show image
 		try {
-			toolImgTwo = ImageIO.read(new URL("https://i.imgur.com/H6ERCYj.png?1"));
+			toolImgTwo = ImageIO.read(new URL("https://i.imgur.com/rBdaVb4.png?2"));
 
 		} catch (IOException ex) {
 			// handle exception...
@@ -59,7 +66,7 @@ public class ItemPanelTwo extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(toolImgTwo, 1, 55, this); // see javadoc for more info on the parameters
+		g.drawImage(toolImgTwo, 2, 60, this); // see javadoc for more info on the parameters
 
 	}
 }
