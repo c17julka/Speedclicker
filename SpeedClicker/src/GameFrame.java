@@ -20,7 +20,6 @@ public class GameFrame extends JFrame {
 		setSize(535, 400);
 		setLayout(null);
 		setLocationRelativeTo(null);
-		setVisible(true);
 
 		// Add components to frame
 		Container c = getContentPane();
@@ -36,6 +35,8 @@ public class GameFrame extends JFrame {
 			EndScreenFrame endFrame = new EndScreenFrame();
 			dispose();
 		}
+		
+		setVisible(true);
 
 	}
 }
