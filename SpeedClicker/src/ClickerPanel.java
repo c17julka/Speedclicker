@@ -12,53 +12,44 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-public class ClickerPanel extends JPanel
-{
+public class ClickerPanel extends JPanel {
 	private BufferedImage clickerImage;
 	static int clicks = 0;
-	
+
 	// Mouse listener for detecting clicks on panel (image)
-	private MouseAdapter clickListener = new MouseAdapter() 
-	{
-	    public void mouseClicked(MouseEvent e) 
-	    {
-	    	clicks++;
-	    	TimerPanel.clickLabel.setText("Total clicks: " + ClickerPanel.clicks);
-	    }
+	private MouseAdapter clickListener = new MouseAdapter() {
+		public void mouseClicked(MouseEvent e) {
+			clicks++;
+			TimerPanel.clickLabel.setText("Total clicks: " + ClickerPanel.clicks);
+		}
 	};
-	
-	public static int getClicks()
-	{
+
+	public static int getClicks() {
 		return clicks;
 	}
-	
-	public ClickerPanel() 
-	{	
-		
+
+	public ClickerPanel() {
+
 		// Panel settings
-		setBounds(0,100,260,265);   	    
-	    setLayout(new GridBagLayout());
-	    setBorder(BorderFactory.createLineBorder(Color.black));
-	    
-	    // Show image
-	    try 
-	    {                
-	       clickerImage = ImageIO.read(new URL("https://i.imgur.com/si9MGVP.png"));
-	    } 
-	    catch (IOException ex) 
-	    {
-	       // handle exception...
-	    }
-	    
-	    addMouseListener(clickListener);
-	    
+		setBounds(0, 100, 260, 265);
+		setLayout(new GridBagLayout());
+		setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Show image
+		try {
+			clickerImage = ImageIO.read(new URL("https://i.imgur.com/si9MGVP.png"));
+		} catch (IOException ex) {
+			// handle exception...
+		}
+
+		addMouseListener(clickListener);
+
 	}
-	
+
 	// Image settings
 	@Override
-    protected void paintComponent(Graphics g) 
-	{
-        super.paintComponent(g);
-        g.drawImage(clickerImage, 1, 15, this); // see javadoc for more info on the parameters            
-    }
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(clickerImage, 1, 15, this); // see javadoc for more info on the parameters
+	}
 }

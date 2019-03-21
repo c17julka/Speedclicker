@@ -22,7 +22,6 @@ public class EndScreenFrame extends JFrame
 		setSize(360, 150);
 		setLayout(new GridBagLayout());
 		setLocationRelativeTo(null);
-		setVisible(true);
 		
 		JButton replayBtn = new JButton("Replay");
 		
@@ -46,15 +45,15 @@ public class EndScreenFrame extends JFrame
 		finalClicks.setFont(new Font("Raleway", Font.PLAIN, 22));
 		
 		// Gives message depending on how many clicks you got
-		if (ClickerPanel.clicks < 200)
+		if (ClickerPanel.clicks < 1000)
 		{
 			congratsLabel.setText("Yeah... you can do better than that.");
 		}
-		else if (ClickerPanel.clicks >= 200 && ClickerPanel.clicks < 300)
+		else if (ClickerPanel.clicks >= 1000 && ClickerPanel.clicks < 5000)
 		{
 			congratsLabel.setText("At least it's a bronze rank...");
 		}
-		else if (ClickerPanel.clicks >= 300 && ClickerPanel.clicks < 400)
+		else if (ClickerPanel.clicks >= 5000 && ClickerPanel.clicks < 10000)
 		{
 			congratsLabel.setText("Silver rank, so close to the gold.");
 		}
@@ -84,6 +83,8 @@ public class EndScreenFrame extends JFrame
 //		gbc.gridy = 2;
 //		
 //		add(replayBtn, gbc);
+		
+		setVisible(true);
 		
 	}
 	

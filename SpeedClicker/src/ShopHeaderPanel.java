@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 
 public class ShopHeaderPanel extends JPanel
 {
+	
+	
+	
 	public ShopHeaderPanel()
 	{
 		// Panel settings

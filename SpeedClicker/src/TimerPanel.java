@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TimerPanel extends JPanel
+public class TimerPanel extends JPanel implements TimerInterface
 {
 	// Timer related settings
 	static int sekPassed = 0;
@@ -51,20 +51,28 @@ public class TimerPanel extends JPanel
 	 }
 		
 	// Static variables
-	static JLabel eventLabel = new JLabel("");
-	static JLabel clickLabel = new JLabel("Total clicks: 0");
+	static JLabel eventLabel = new JLabel();
+	static JLabel clickLabel = new JLabel();
+	
+	// Create labels (interface)
+	public void addTimerLabels() 
+	{
+		eventLabel.setText("");
+		clickLabel.setText("Total clicks: 0");		
+		
+	}
+	
 	 
 	public TimerPanel()
-	{
-		// Label settings
-		//String clickString = "Total clicks: Find out when you're done";		
+	{		
 		
 		// Panel settings
 		setBounds(0,-1,260,102);   	    
 	    setLayout(new GridBagLayout());
 	    setBorder(BorderFactory.createLineBorder(Color.black));	  
 	    
-	    // Set fonts
+	    // Add labels and set fonts
+	    addTimerLabels();
 	    clickLabel.setFont(new Font("Raleway", Font.PLAIN, 14));
 	    timerLabel.setFont(new Font("Raleway", Font.PLAIN, 14));
 	    

@@ -20,7 +20,7 @@ public class StartingDialogFrame extends JFrame
 		setSize(320, 200);
 		setLayout(new GridBagLayout());
 		setLocationRelativeTo(null);
-		setVisible(true);
+		
 		
 		JButton startBtn = new JButton("Start game!");
 		
@@ -75,6 +75,8 @@ public class StartingDialogFrame extends JFrame
 		gbc.gridy = 4;
 		
 		add(startBtn, gbc);
+		
+		setVisible(true);
 		
 	}
 	
